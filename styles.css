@@ -1,0 +1,75 @@
+:root{
+  --bg:#0b0d12;
+  --panel:#111522;
+  --muted:#9aa4b2;
+  --text:#e7edf5;
+  --border:#263147;
+  --primary:#4f8cff;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  background: radial-gradient(1200px 600px at 20% 0%, rgba(79,140,255,.25), transparent 60%), var(--bg);
+  color:var(--text);
+}
+.container{max-width:1100px;margin:0 auto;padding:16px}
+.app-header{border-bottom:1px solid var(--border);background:rgba(17,21,34,.75);backdrop-filter: blur(10px);position:sticky;top:0;z-index:10}
+h1{margin:6px 0 4px;font-size:22px}
+.muted{color:var(--muted)}
+.small{font-size:12px;line-height:1.4}
+
+.panel{
+  background: rgba(17,21,34,.9);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 14px;
+  margin: 14px 0;
+}
+
+.grid{display:grid;grid-template-columns: 1.2fr 1fr;gap:12px}
+.field{display:flex;flex-direction:column;gap:6px}
+label{font-size:12px;color:var(--muted)}
+input{
+  border:1px solid var(--border);
+  background:#0b0f1b;
+  color:var(--text);
+  padding:9px 10px;
+  border-radius:10px;
+  outline:none;
+}
+input:focus{border-color: rgba(79,140,255,.8); box-shadow:0 0 0 4px rgba(79,140,255,.14)}
+
+.opts{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.opt{font-size:13px;color:var(--text);display:flex;gap:8px;align-items:center}
+.opt input{transform: translateY(1px)}
+code{background:#0b0f1b;border:1px solid var(--border);padding:1px 6px;border-radius:8px}
+
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{
+  border:1px solid var(--border);
+  background:#0f1320;
+  color:var(--text);
+  padding:8px 10px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:600;
+}
+.btn:hover{border-color:#3a4a6b}
+.btn.primary{background:rgba(79,140,255,.18);border-color:rgba(79,140,255,.55)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+
+.result-head{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+
+.split{display:grid;grid-template-columns: 1fr 1fr;gap:10px;margin-top:10px}
+.box{border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.box-title{background:rgba(15,19,32,.75);padding:10px;font-size:12px;color:var(--muted);border-bottom:1px solid var(--border)}
+.pre{margin:0;padding:10px;max-height:520px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+
+@media (max-width: 900px){
+  .grid{grid-template-columns:1fr}
+  .split{grid-template-columns:1fr}
+}

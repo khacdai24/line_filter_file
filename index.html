@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Line Filter (Local)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="container">
+      <h1>Line Filter</h1>
+      <p class="muted">Tải file lên (JSON / TXT / bất kỳ text). Nhập từ/cụm từ cần lọc → trả về các dòng chứa từ đó.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <div class="grid">
+        <div class="field">
+          <label>File input</label>
+          <input id="file" type="file" accept=".txt,.log,.json,.csv,.md,text/plain,application/json" />
+          <div class="muted small" id="fileInfo">Chưa chọn file.</div>
+        </div>
+
+        <div class="field">
+          <label for="needle">Từ/cụm từ cần lọc</label>
+          <input id="needle" type="text" placeholder="VD: error" />
+        </div>
+
+        <div class="field">
+          <label>Tuỳ chọn</label>
+          <div class="opts">
+            <label class="opt"><input id="caseSensitive" type="checkbox" /> Phân biệt hoa/thường</label>
+            <label class="opt"><input id="useRegex" type="checkbox" /> Dùng Regex</label>
+            <label class="opt"><input id="invert" type="checkbox" /> Lọc ngược (KHÔNG chứa)</label>
+          </div>
+          <div class="muted small" id="regexHint">Regex dùng cú pháp JavaScript. Ví dụ: <code>\berror\b</code></div>
+        </div>
+
+        <div class="field">
+          <label for="maxLines">Giới hạn kết quả</label>
+          <input id="maxLines" type="number" min="1" step="1" value="2000" />
+          <div class="muted small">Để tránh treo trình duyệt khi file quá lớn.</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="btnFilter" class="btn primary">Lọc</button>
+        <button id="btnClear" class="btn">Xoá kết quả</button>
+        <button id="btnCopy" class="btn" disabled>Copy kết quả</button>
+        <button id="btnDownload" class="btn" disabled>Tải kết quả (.txt)</button>
+        <button id="btnExportCookie" class="btn" disabled>Export Cookie JSON</button>
+      </div>
+
+      <div class="result-head">
+        <div class="muted" id="stats">—</div>
+      </div>
+
+      <div class="split">
+        <div class="box">
+          <div class="box-title">Kết quả (dòng khớp)</div>
+          <pre id="out" class="pre" aria-label="Kết quả"></pre>
+        </div>
+        <div class="box">
+          <div class="box-title">Mẫu xem nhanh (đầu file)</div>
+          <pre id="preview" class="pre muted" aria-label="Preview"></pre>
+        </div>
+      </div>
+
+      <p class="muted small">Ghi chú: ứng dụng chạy hoàn toàn trong trình duyệt, không upload file lên mạng.</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
