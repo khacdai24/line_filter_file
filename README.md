@@ -1,19 +1,20 @@
 # Line Filter (Local)
+Website filters lines by keywords (or Regex). Run entirely in the browser.
 
-Trang web lọc dòng theo từ khoá (hoặc Regex). Chạy hoàn toàn trong trình duyệt.
+(When i use this tool??? When i get some cookie file, attach file in this tool, write text i want to filter (i use , and | to seperate keywords) push filter button and it will show me the result (or use regex) then i can save it as JSON file. Download Cookie Edit Tool, import cookie file and login directly in the account)
 
-## Cách dùng
-1. Mở `index.html` (hoặc Live Server trong VS Code).
-2. Chọn file `.json/.txt/.log/...`.
-3. Nhập từ/cụm từ cần lọc.
-4. Bấm **Lọc** → kết quả hiển thị các dòng khớp kèm số dòng.
+## Usage
+1. Open `index.html` (or Live Server in VS Code).
+2. Select file `.json/.txt/.log/...`.
+3. Enter the keyword/phrase to filter.
+4. Click **Filter** → the result will display the matching lines along with the line numbers.
 
-## Tuỳ chọn
-- **Phân biệt hoa/thường**
-- **Dùng Regex** (JavaScript RegExp)
-- **Lọc ngược**: lấy các dòng *không* chứa từ khoá
-- **Giới hạn kết quả** để tránh treo trình duyệt
+## Options
+- **Case sensitive**
+- **Use Regex** (JavaScript RegExp)
+- **Inverse filtering**: get the lines that *do not* contain the keyword
+- **Limit results** to avoid browser hanging
 
-## Ghi chú
-- File không bị upload lên mạng.
-- Với file rất lớn, trình duyệt có thể chậm. Hãy giảm giới hạn kết quả hoặc chia nhỏ file.
+## Note
+- File is not uploaded to the network.
+- With very large files, the browser may be slow. Reduce the result limit or split the file.
